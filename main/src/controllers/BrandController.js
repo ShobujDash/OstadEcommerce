@@ -1,9 +1,6 @@
-exports.BrandList = async (req, res) => {
-  
+const { AllBrands } = require("../services/ProductService");
 
-  
-  return res.status(200).json({
-    success: true,
-    message:"Brand List"
-  })
-}
+exports.BrandList = async (req, res) => {
+  let result = await AllBrands(req);
+  return res.status(200).json(result);
+};

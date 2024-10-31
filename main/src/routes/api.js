@@ -16,19 +16,21 @@ router.get("/CategoryList", CategoryCotroller.CategoryList);
 
 // Product
 router.get("/SliderList", ProductController.SliderList);
-router.get("/ListByCategory", ProductController.ListByCategory);
-router.get("/ListBySimilar", ProductController.ListBySimilar);
-router.get("/ListByBrand", ProductController.ListByBrand);
-router.get("/ListByKeyword", ProductController.ListByKeyword);
+router.get("/ListByCategory/:categoryID", ProductController.ListByCategory);
+router.get("/ListByBrand/:brandID", ProductController.ListByBrand);
+router.get("/ListBySimilar/:categoryID", ProductController.ListBySimilar);
+router.get("/ListByKeyword/:keyword", ProductController.ListByKeyword);
 router.get("/ListReview", ProductController.ListReview);
 router.get("/ProductDetails", ProductController.ProductDetails);
-router.get("/ListByRemark", ProductController.ListByRemark);
-router.get("/WishList", ProductController.WishList);
-router.get("/CreateWishList", ProductController.CreateWishList);
-router.get("/RemoveWishList", ProductController.RemoveWishList);
-router.get("/CartList", ProductController.CartList);
-router.get("/CreateCartList", ProductController.CreateCartList);
-router.get("/RemoveCartList", ProductController.RemoveCartList);
+router.get("/ListByRemark/:remark", ProductController.ListByRemark);
+
+router.get("/WishList",AuthVerification, ProductController.WishList);
+router.post("/CreateWishList",AuthVerification, ProductController.CreateWishList);
+router.post("/RemoveWishList", AuthVerification, ProductController.RemoveWishList);
+
+router.get("/CartList",AuthVerification, ProductController.CartList);
+router.post("/CreateCartList",AuthVerification, ProductController.CreateCartList);
+router.post("/RemoveCartList",AuthVerification, ProductController.RemoveCartList);
 
 
 // User
@@ -38,7 +40,7 @@ router.get("/UserLogout", UserController.UserLogout);
 
 
 // Profile
-router.get("/CreateProfile",AuthVerification, ProfileController.CreateProfile);
+router.post("/CreateProfile",AuthVerification, ProfileController.CreateProfile);
 router.get("/ReadProfile",AuthVerification, ProfileController.ReadProfile);
 router.get("/UpdateProfile",AuthVerification, ProfileController.UpdateProfile);
 
