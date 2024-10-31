@@ -2,15 +2,22 @@ const mongoose = require("mongoose");
 
 const DataSchema = mongoose.Schema(
   {
+    categoryID: { type: mongoose.Schema.Types.ObjectId, required: true },
+    brandID: { type: mongoose.Schema.Types.ObjectId, required: true },
     title: { type: String, trim: true, required: true },
-    shortDes: { type: String,trim:true,required: true },
-    price: { type: String,trim:true,required: true },
-    descount: { type: Boolean,trim:true,default:false },
-    descountPrice: { type: String,trim:true },
-    image: { type: String,trim:true,required:true },
-    star: { type: String,trim:true,required:true },
-    stock: { type: Boolean,trim:true,required:true,default:true },
-    remark: { type: String,trim:true,required:true,enum:['new',"tranding",'popular','top','special','regular'] },
+    shortDes: { type: String, trim: true, required: true },
+    price: { type: String, trim: true, required: true },
+    descount: { type: Boolean, trim: true, default: false },
+    descountPrice: { type: String, trim: true },
+    image: { type: String, trim: true, required: true },
+    star: { type: String, trim: true, required: true },
+    stock: { type: Boolean, trim: true, required: true, default: true },
+    remark: {
+      type: String,
+      trim: true,
+      required: true,
+      enum: ["new", "tranding", "popular", "top", "special", "regular"],
+    },
   },
   { timestamps: true, versionKey: false }
 );

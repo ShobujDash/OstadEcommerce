@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
-exports.EncodeToken =  (email) => {
-  return jwt.sign({ email: email }, process.env.JWT_SECRET, {
+exports.EncodeToken =  (email,id) => {
+  return jwt.sign({ email: email ,id:id}, process.env.JWT_SECRET, {
     expiresIn: "1h",
   }); 
 }
