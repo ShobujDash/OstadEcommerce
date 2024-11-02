@@ -1,0 +1,10 @@
+{
+  "store_id":"testshobuq96k",
+  "store_password":"shobu672482842dec1@ssl",
+  "currency":"BDT",
+  "success_url":"",
+  "fail_url":"",
+  "cancel_url":"",
+  "ipn_url":"",
+  "init_url":"https://sandbox.sslcommerz.com/gwprocess/v3/api.php"
+} 
