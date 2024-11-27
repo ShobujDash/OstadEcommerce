@@ -8,7 +8,10 @@ exports.UserLogin = async (req, res) => {
 
 exports.VerifyLogin = async (req, res) => {
   const result = await UsreVerify(req);
-  res.status(200).json(result);
+  if (result["status"] === "success") {
+    res.cookie("token", result["token"]); // For web cookie
+    return res.status(200).json(result);
+  }
 };
 
 exports.UserLogout = async (req, res) => {
