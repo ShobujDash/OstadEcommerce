@@ -9,6 +9,7 @@ const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
 const hpp = require("hpp");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 // Database Lib Import
 const mongoose = require("mongoose");
@@ -29,6 +30,7 @@ mongoose
   });
 
 // Security Middleware Implement
+app.use(cookieParser())
 app.use(cors());
 app.use(helmet());
 app.use(mongoSanitize());
